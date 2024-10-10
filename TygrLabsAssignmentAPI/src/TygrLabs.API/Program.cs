@@ -1,4 +1,8 @@
 using Serilog;
+using TygrLabs.Application.IServices;
+using TygrLabs.Application.Services;
+using TygrLabs.Domain.Repositories;
+using TygrLabs.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +21,10 @@ try
     builder.Logging.AddSerilog(logger);
 
     logger.Information("Starting web application");
+
+    // Register user repository and service
+    builder.Services.AddSingleton<IUserRepository, UserRepository>();
+    builder.Services.AddSingleton<IUserService, UserService>();
 
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

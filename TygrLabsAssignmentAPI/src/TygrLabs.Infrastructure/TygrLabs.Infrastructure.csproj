@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\shared\TygrLabs.Shared\TygrLabs.Shared.csproj" />
     <ProjectReference Include="..\TygrLabs.Domain\TygrLabs.Domain.csproj" />
   </ItemGroup>
 
