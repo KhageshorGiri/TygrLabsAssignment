@@ -1,0 +1,6 @@
+@TygrLabs.API_HostAddress = http://localhost:5161
+
+GET {{TygrLabs.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
