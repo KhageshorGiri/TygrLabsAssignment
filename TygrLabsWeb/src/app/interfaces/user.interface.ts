@@ -1,6 +1,7 @@
 
 export interface Users{
-    Id : Number,
-    FullName: string,
-    LastName: string
+    ID: number;
+    FirstName: string,
+    LastName: string,
+    [key: string]: any; // This allows for dynamic fields
 }

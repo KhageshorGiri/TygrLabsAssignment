@@ -16,7 +16,6 @@ public class UsersController : ControllerBase
     }
 
 
-
     [HttpGet("[action]")]
     public async Task<IActionResult> GetAllUsers()
     {
@@ -26,7 +25,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("[action]/{id}")]
-    public async Task<IActionResult> GetUsrById(int id)
+    public async Task<IActionResult> GetUsrById(string id)
     {
         var user = _userService.GetUserById(id);
         if (user == null)
@@ -51,7 +50,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPut("[action]/{id}")]
-    public async Task<IActionResult> EditUser(int id, [FromBody] Dictionary<string, object> updatedFields)
+    public async Task<IActionResult> EditUser(string id, [FromBody] Dictionary<string, object> updatedFields)
     {
         try
         {
@@ -65,7 +64,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpDelete("[action]/{id}")]
-    public async Task<IActionResult> DeleteUser(int id)
+    public async Task<IActionResult> DeleteUser(string id)
     {
         try
         {

@@ -6,9 +6,9 @@ public interface IUserRepository
 {
     List<string> GetColumns();                 // Get the list of column names (fields).
     List<User> GetUsers();              // Get all users.
-    User GetUserById(int id);           // Get a specific user by ID.
+    User GetUserById(string id);           // Get a specific user by ID.
     void AddColumn(string columnName);         // Add a new column to the user data.
     void AddUser(User user);            // Add a new user.
-    void EditUser(int id, User user);   // Edit an existing user by ID.
-    void DeleteUser(int id);
+    void EditUser(string id, User user);   // Edit an existing user by ID.
+    void DeleteUser(string id);
 }

@@ -29,10 +29,10 @@ public class UserRepository : IUserRepository
     }
 
     // Get user by ID
-    public User GetUserById(int id)
+    public User GetUserById(string id)
     {
         var users = GetUsers();
-        return users.FirstOrDefault(u => Convert.ToInt32(u.Fields["ID"]) == id);
+        return users.FirstOrDefault(u => Convert.ToString(u.Fields["ID"]) == id);
     }
 
     // Add a new column
@@ -53,10 +53,10 @@ public class UserRepository : IUserRepository
     }
 
     // Edit an existing user
-    public void EditUser(int id, User updatedUser)
+    public void EditUser(string id, User updatedUser)
     {
         var users = GetUsers();
-        var userIndex = users.FindIndex(u => Convert.ToInt32(u.Fields["ID"]) == id);
+        var userIndex = users.FindIndex(u => Convert.ToString(u.Fields["ID"]) == id);
 
         if (userIndex != -1)
         {
@@ -66,10 +66,10 @@ public class UserRepository : IUserRepository
     }
 
     // Delete a user
-    public void DeleteUser(int id)
+    public void DeleteUser(string id)
     {
         var users = GetUsers();
-        var userToDelete = users.FirstOrDefault(u => Convert.ToInt32(u.Fields["ID"]) == id);
+        var userToDelete = users.FirstOrDefault(u => Convert.ToString(u.Fields["ID"]) == id);
 
         if (userToDelete != null)
         {

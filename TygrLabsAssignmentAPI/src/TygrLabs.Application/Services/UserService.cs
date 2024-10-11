@@ -17,7 +17,7 @@ public class UserService : IUserService
 
     public List<User> GetUsers() => _userRepository.GetUsers();
 
-    public User GetUserById(int id) => _userRepository.GetUserById(id);
+    public User GetUserById(string id) => _userRepository.GetUserById(id);
 
     public void AddColumn(string columnName)
     {
@@ -48,7 +48,7 @@ public class UserService : IUserService
         _userRepository.AddUser(dynamicUser);
     }
 
-    public void EditUser(int id, Dictionary<string, object> updatedFields)
+    public void EditUser(string id, Dictionary<string, object> updatedFields)
     {
         var existingUser = _userRepository.GetUserById(id);
         if (existingUser == null)
@@ -64,7 +64,7 @@ public class UserService : IUserService
         _userRepository.EditUser(id, updatedUser);
     }
 
-    public void DeleteUser(int id)
+    public void DeleteUser(string id)
     {
         var user = _userRepository.GetUserById(id);
         if (user == null)

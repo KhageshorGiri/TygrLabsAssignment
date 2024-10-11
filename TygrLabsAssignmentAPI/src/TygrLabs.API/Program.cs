@@ -31,6 +31,20 @@ try
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
+
+
+    // Enable CORS
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowSpecificOrigins",
+            builder =>
+            {
+                builder.WithOrigins("http://localhost:4200") // Your Angular app URL
+                       .AllowAnyHeader()
+                       .AllowAnyMethod();
+            });
+    });
+
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
@@ -41,6 +55,8 @@ try
     }
 
     app.UseHttpsRedirection();
+
+    app.UseCors("AllowSpecificOrigins"); // Enable CORS here
 
     app.UseAuthorization();
 
